@@ -8,11 +8,12 @@ public class Cat extends Animal implements IMammals {
 
     /**
      * Polyformism, metod från interface!
+     *
      * @return
      */
     @Override
     public double calculatePortionSize() {
-        double portionSize = (double)this.getWeight() * 1000 / 150;
+        double portionSize = (double) this.getWeight() * 1000 / 150;
         return portionSize;
     }
 }

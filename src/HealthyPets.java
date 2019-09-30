@@ -34,7 +34,7 @@ public class HealthyPets {
          * För att undvika felmeddelanden
          */
         try {
-        searchAnimal();
+            searchAnimal();
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Avslutar programmet");
             System.exit(1);

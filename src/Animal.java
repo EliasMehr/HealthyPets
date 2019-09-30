@@ -13,7 +13,6 @@ public abstract class Animal {
     private DecimalFormat formatDoubles = new DecimalFormat("#.##");
 
 
-
     /**
      * Skapar upp en konstruktor som skall skapa upp ett DJUR(namn och vikt)
      */
@@ -71,11 +70,10 @@ public abstract class Animal {
 
     /**
      * Polymorfism(override) som returnerar objektets hashcode till Strängar!
-
      */
 
     @Override
     public String toString() {
-        return "Namn: " +this.name + "\nVäger: " + this.weight +"Kg" + "\nSkall matas med: " + formatDoubles.format(portionSize) + "g " + this.foodType;
+        return "Namn: " + this.name + "\nVäger: " + this.weight + "Kg" + "\nSkall matas med: " + formatDoubles.format(portionSize) + "g " + this.foodType;
     }
 }
