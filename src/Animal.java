@@ -1,9 +1,22 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public abstract class Animal {
+    /**
+     * Deklarerar upp mina instanser private
+     */
+
     private String name;
     private int weight;
     private FoodType foodType;
-    private int portionSize;
+    private double portionSize;
+    private DecimalFormat formatDoubles = new DecimalFormat("#.##");
 
+
+
+    /**
+     * Skapar upp en konstruktor som skall skapa upp ett DJUR(namn och vikt)
+     */
     public Animal(String name, int weightKG) {
         this.name = name;
         if (weightKG <= 0)
@@ -11,6 +24,11 @@ public abstract class Animal {
         this.weight = weightKG;
         HealthyPets.getAnimals().add(this);
     }
+
+    /**
+     * Mina setters och getters som kan hämta värden från mina instanser som är private
+     */
+
 
     public String getName() {
         return name;
@@ -24,17 +42,21 @@ public abstract class Animal {
         return weight;
     }
 
+    /**
+     * Lägger till ett statement att inte tillåta användare att skapa upp ett djur som väger 0KG
+     */
+
     public void setWeight(int weight) {
         if (weight <= 0)
             throw new IllegalArgumentException("Djuret kan inte väga mindre än 1KG");
         this.weight = weight;
     }
 
-    public int getPortionSize() {
+    public double getPortionSize() {
         return portionSize;
     }
 
-    public void setPortionSize(int portionSize) {
+    public void setPortionSize(double portionSize) {
         this.portionSize = portionSize;
     }
 
@@ -46,8 +68,14 @@ public abstract class Animal {
         this.foodType = foodType;
     }
 
+
+    /**
+     * Polymorfism(override) som returnerar objektets hashcode till Strängar!
+
+     */
+
     @Override
     public String toString() {
-        return this.name + " " + this.weight + " " + this.foodType + " " + this.portionSize;
+        return "Namn: " +this.name + "\nVäger: " + this.weight +"Kg" + "\nSkall matas med: " + formatDoubles.format(portionSize) + "g " + this.foodType;
     }
 }

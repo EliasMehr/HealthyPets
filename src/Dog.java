@@ -6,9 +6,15 @@ public class Dog extends Animal implements IMammals {
         this.setPortionSize(calculatePortionSize());
     }
 
+    /**
+     * Klassen Dog som ärver från Animal och implementerar ett Interface med metoden som räknar ut foder
+     * @return
+     */
+
+
     @Override
-    public int calculatePortionSize() {
-        double portionSize = this.getWeight() * 1000 / 100;
-        return (int)portionSize;
+    public double calculatePortionSize() {
+        int portionSize = this.getWeight() * 1000 / 100;
+        return portionSize;
     }
 }

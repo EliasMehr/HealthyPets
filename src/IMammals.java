@@ -1,3 +1,3 @@
 public interface IMammals {
-    int calculatePortionSize();
+    double calculatePortionSize();
 }

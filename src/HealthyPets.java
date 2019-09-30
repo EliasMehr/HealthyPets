@@ -11,33 +11,35 @@ public class HealthyPets {
 
     public static void searchAnimal() {
         while (true) {
-        //Skapar upp hotellets djur
+            String input = JOptionPane.showInputDialog("Ange vilket djur som ska få mat!").trim();
+
+            for (int i = 0; i < animals.size(); i++) {
+                if (animals.get(i).getName().equalsIgnoreCase(input))
+                    JOptionPane.showMessageDialog(null, animals.get(i));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        /**
+         * Skapar upp mina objekt som beskriver djur
+         */
         Dog sixten = new Dog("Sixten", 5);
         Dog dogge = new Dog("Dogge", 10);
         Cat venus = new Cat("Venus", 5);
         Cat ove = new Cat("Ove", 3);
         Snake hypno = new Snake("Hypno", 1);
 
-            String input = JOptionPane.showInputDialog("Ange vilket djur som ska få mat!").trim();
-            input = input.substring(0,1).toUpperCase() + input.substring(1).toLowerCase();
-
-            for (Animal animal : animals) {
-                System.out.println(animal);
-            }
-
-            switch (input) {
-                case "Sixten":
-                    animals.equals(sixten);
-                    JOptionPane.showMessageDialog(null, sixten);
-                    break;
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-
+        /**
+         * För att undvika felmeddelanden
+         */
+        try {
         searchAnimal();
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Avslutar programmet");
+            System.exit(1);
+        }
 
     }
-
 }
+
