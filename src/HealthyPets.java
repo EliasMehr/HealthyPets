@@ -11,12 +11,16 @@ public class HealthyPets {
 
     public static void searchAnimal() {
         while (true) {
+            boolean hasAnimalInList = false;
             String input = JOptionPane.showInputDialog("Ange vilket djur som ska få mat!").trim();
-
             for (int i = 0; i < animals.size(); i++) {
-                if (animals.get(i).getName().equalsIgnoreCase(input))
+                if (animals.get(i).getName().equalsIgnoreCase(input)) {
                     JOptionPane.showMessageDialog(null, animals.get(i));
+                    hasAnimalInList = true;
+                }
             }
+            if (!hasAnimalInList)
+                JOptionPane.showMessageDialog(null, "Angivet djur existerar inte hos HealthyPets");
         }
     }
 
@@ -31,13 +35,13 @@ public class HealthyPets {
         Snake hypno = new Snake("Hypno", 1);
 
         /**
-         * För att undvika felmeddelanden
+         * Använder mig ut av try Catch för att låta programmet fortstätta istället för runtime error
          */
         try {
             searchAnimal();
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Avslutar programmet");
-            System.exit(1);
+            System.exit(0);
         }
 
     }
