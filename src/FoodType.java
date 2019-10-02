@@ -1,5 +1,10 @@
 public enum FoodType {
     HUNDFODER,
     KATTFODER,
-    ORMPELLETS
+    ORMPELLETS;
+
+    @Override
+    public String toString() {
+        return super.toString().toLowerCase();
+    }
 }

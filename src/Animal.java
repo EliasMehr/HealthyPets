@@ -1,9 +1,8 @@
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
 public abstract class Animal {
     /**
-     * Deklarerar upp mina instanser private
+     * Deklarerar upp mina instanser private för inkapsling
      */
 
     private String name;
@@ -21,7 +20,6 @@ public abstract class Animal {
         if (weightKG <= 0)
             throw new IllegalArgumentException("Djuret kan inte väga mindre än 1KG");
         this.weight = weightKG;
-        HealthyPets.getAnimals().add(this);
     }
 
     /**
@@ -77,3 +75,4 @@ public abstract class Animal {
         return "Namn: " + this.name + "\nVäger: " + this.weight + "Kg" + "\nSkall matas med: " + formatDoubles.format(portionSize) + "g " + this.foodType;
     }
 }
+
